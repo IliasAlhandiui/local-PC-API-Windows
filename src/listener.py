@@ -13,6 +13,11 @@ ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
 
 
 # --------------- Flask App Routes -----------#
+@app.get("/")
+def root():
+    return "OK"
+
+
 @app.route("/shutdown", methods=["GET"])
 def shutdown():
     if request.args.get("token") != ACCESS_TOKEN:
@@ -104,10 +109,6 @@ def status_json():
         }
     )
 
-
-@app.get("/")
-def root():
-    return "OK"
 
 
 app.run(host="0.0.0.0", port=5000)
