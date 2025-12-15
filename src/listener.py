@@ -22,7 +22,7 @@ def root():
 def shutdown():
     if request.args.get("token") != ACCESS_TOKEN:
         return "Unauthorized", 401
-    os.system("shutdown /h /t 0")
+    os.system("shutdown /h /t 1")
     return "OK"
 
 
@@ -30,7 +30,7 @@ def shutdown():
 def restart():
     if request.args.get("token") != ACCESS_TOKEN:
         return "Unauthorized", 401
-    os.system("shutdown /r /t 0")
+    os.system("shutdown /r /t 1")
     return "OK"
 
 
